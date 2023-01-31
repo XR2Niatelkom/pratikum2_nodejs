@@ -2,7 +2,6 @@ const express = require("express")
 const bodyParser = require("body-parser")
 const cors = require("cors")
 const mysql = require("mysql")
-const  e = require("express")
 // const { error } = require("console")
 // const { debugPort } = require("process")
 // const { strictEqual } = require("assert")
@@ -46,9 +45,9 @@ app.get("/sewa", (req,res) => {
     })
 })
 
-app.get("/sewa/:id", (req,res) => {
+app.get("/sewa/:id_penyewaan", (req,res) => {
     let data = {
-        id_penyewaan:req.params.id
+        id_penyewaan:req.params.id_penyewaan
     }
     let sql = "select * from sewa where ?"
     db.query(sql,data, (error, result) => {
@@ -117,9 +116,9 @@ app.put("/sewa", (req,res) => {
     })
 })
 
-app.delete("/sewa/:id", (req,res) => {
+app.delete("/sewa/:id_penyewaan", (req,res) => {
     let data = {
-        id_penyewaan: req.params.id
+        id_penyewaan: req.params.id_penyewaan
     }
 
     let sql = "delete from sewa where ?"
@@ -157,9 +156,9 @@ app.get("/kendaraan", (req,res) => {
     })
 })
 
-app.get("/kendaraan/:id", (req,res) => {
+app.get("/kendaraan/:id_kendaraan", (req,res) => {
     let data = {
-        id_kendaraan:req.params.id
+        id_kendaraan:req.params.id_kendaraan
     }
     let sql = "select * from kendaraan where ?"
     db.query(sql,data, (error, result) => {
@@ -231,9 +230,9 @@ app.put("/kendaraan", (req,res) => {
     })
 })
 
-app.delete("/kendaraan/:id", (req,res) => {
+app.delete("/kendaraan/:id_kendaraan", (req,res) => {
     let data = {
-        id_kendaraan: req.params.id
+        id_kendaraan: req.params.id_kendaraan
     }
 
     let sql = "delete from kendaraan where ?"
@@ -271,9 +270,9 @@ app.get("/admin", (req,res) => {
     })
 })
 
-app.get("/admin/:id", (req,res) => {
+app.get("/admin/:id_admin", (req,res) => {
     let data = {
-        id_admin:req.params.id
+        id_admin:req.params.id_admin
     }
     let sql = "select * from admin where ?"
     db.query(sql,data, (error, result) => {
@@ -345,9 +344,9 @@ app.put("/admin", (req,res) => {
     })
 })
 
-app.delete("/admin/:id", (req,res) => {
+app.delete("/admin/:id_admin", (req,res) => {
     let data = {
-        id_admin: req.params.id
+        id_admin: req.params.id_admin
     }
 
     let sql = "delete from admin where ?"
